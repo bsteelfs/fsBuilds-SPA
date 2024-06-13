@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'FastSpring',
             'name' => 'Braden',
             'surname' => 'Steel',
-            'email' => 'fstest1@bradensteel.com',
+            'email' => 'fstest4@bradensteel.com',
             'password' => bcrypt('FastSpring1234'),
         ]);
     }
