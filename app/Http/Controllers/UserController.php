@@ -20,6 +20,7 @@ class UserController extends Controller
         $management_url = null;
         $main_subscription = null;
         $secondary_subscription = null;
+        $last_subscription_id = null;
 
 
         if ($user->fs_account_id) {
@@ -32,6 +33,7 @@ class UserController extends Controller
 
                 if (Arr::get($sub, 'price') > 50) $main_subscription = $sub;
                 else $secondary_subscription = $sub;
+                $last_subscription_id = $sub_id;
             }
         }
 
@@ -43,7 +45,7 @@ class UserController extends Controller
             'subscriptions' => [
                 'main' => $main_subscription,
                 'secondary' => $secondary_subscription,
-                'last_subscription_id' => $fastspring_account ? Arr::get($fastspring_account, 'subscriptions.0') : null
+                'last_subscription_id' => $last_subscription_id
             ]
         ]);
     }
